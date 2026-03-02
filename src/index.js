@@ -1,7 +1,10 @@
 import mongoose from "mongoose";
-import { DB_NAME } from "./constant.js";
 import connectDB from "./db/index.js";
 import dotenv from 'dotenv'
+import cookieParser from "cookie-parser";
+import express from "express"
+import cors from "cors";
+import { DB_NAME } from "./constant.js";
 import { app } from "./app.js";
 
 
@@ -9,6 +12,18 @@ import { app } from "./app.js";
 dotenv.config({
     path: "./.env"
 })
+
+// Middlewares  -- express config
+app.use(cors({
+    origin: process.env.CORS_ORIGIN,
+    credentials: true
+}));
+
+app.use(express.json({limit: "16kb"}));
+app.use(express.urlencoded({extended: true}));
+app.use(express.static("public"));
+app.use(cookieParser());
+
 
 // 2nd Approch -- best Approch
 connectDB()
@@ -18,7 +33,7 @@ connectDB()
     })
 })
 .catch((err) =>{
-    console.log("MongoDB is Not Connected" + err)
+    console.log("MongoDB is Not Connected", err)
 })
 
 
