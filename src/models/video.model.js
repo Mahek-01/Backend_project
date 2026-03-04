@@ -37,7 +37,7 @@ const videoSchema = new Schema({
 }, {timestamps: true})
 
 
-// helping for Aggregation pipeline -- $match, $group, etc
+// helping for Aggregation pipeline -- $match, $group etc
 videoSchema.plugin(mongooseAggregatePaginate);
 
 export const Video = mongoose.model("Video", videoSchema);

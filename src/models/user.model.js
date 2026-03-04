@@ -50,6 +50,7 @@ const userSchema = new Schema ({
     timestamps: true
 });
 
+// Middleware -- pre hook -- saying that save thava thi pela aa run thavu khape
 userSchema.pre("save", async function (next) {
     // agr pw modified nti krta toh kai change na thavu khape
     if(!this.isModified("password")) return next();
