@@ -20,12 +20,14 @@
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
+    "cloudinary": "^2.9.0",
     "cookie-parser": "^1.4.7",
     "cookieparser": "^0.1.0",
     "cors": "^2.8.6",
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
     "mongodb-aggregation-builder": "^1.0.9",
-    "mongoose": "^9.2.3"
+    "mongoose": "^9.2.3",
+    "multer": "^2.1.1"
   }
 }
